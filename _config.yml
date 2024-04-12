@@ -1,5 +1,5 @@
 theme: jekyll-theme-modernist
-title: Nested Music Transformer
+title: "Nested Music Transformer:<br>Sequentially Decoding Compound Tokens in Symbolic Music and Audio Generation"
 repository: AnonymousAuthorA/nested-music-transformer-demo
 description: ISMIR 2024
 show_downloads: false
