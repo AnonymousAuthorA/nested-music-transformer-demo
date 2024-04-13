@@ -1,15 +1,17 @@
-## Content
 
+<hr style="border: double 1.35px silver;">
+## Content
+---
 - [NMT Architecture](#architecture)
 - [Generated Results](#generations)
   - [Best unconditioned generation samples](#best-unconditional)
   - [4-measure continuation comparison among models](#continuation)
   - [MAESTRO fine-tuned EnCodec token based continuated generation samples](#encodec)
 
----
+<hr style="border: double 1.35px silver;">
 
 ## NMT Architecture {#architecture}
-
+---
 <img src="img/diagram.PNG" style="border: 2px solid grey">
 
 Diagram of the Nested Music Transformer
@@ -24,10 +26,10 @@ Multiple architectures of the Nested Music Transformer
 
 > __Note__: All the samples are generated in single pass through the model using a sequence length of 1024. Thus, the generated music is usually shorter for a more complex ensemble than a simple ensemble.
 
----
+<hr style="border: double 1.35px silver;">
 
 ## Generated Results {#generations}
-
+---
 ### Best unconditioned generation samples {#best-unconditional}
 
 > __Settings__: The results of unconditional generation from different models.
@@ -69,5 +71,4 @@ Multiple architectures of the Nested Music Transformer
 | __Enricher__ | {% include audio_player.html filename="audio/encodec_continuation/1_07_Enricher.wav" %} | {% include audio_player.html filename="audio/encodec_continuation/3_07_Enricher.wav" %} |
 
 </div>
-
----
+<hr style="border: double 1.35px silver;">
