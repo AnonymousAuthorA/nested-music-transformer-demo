@@ -12,21 +12,47 @@
 
 ## NMT Architecture {#architecture}
 ---
-<img src="img/diagram.PNG" style="border: 2px solid grey">
+<img src="img/demo_teaser_fig.PNG" style="border: 2px solid grey">
 
-Diagram of the Nested Music Transformer
+Diagram of different prediction method in subdecoder.
+{:.center .larger}
+> __Note__: Our proposed Nested Music Transformer (NMT) predicts each feature in a fully-sequential manner, which is different from how the previous decoding architectures work.
+
+<img src="img/demo_subdecoder_fig.PNG" style="border: 2px solid grey" class="wider">
+
+ Illustrations of the proposed Nested Music Transformer (NMT) and other sub-decoder structures
 {:.center .larger}
 <br>
-<br>
-<img src="img/structure.PNG" style="border: 2px solid grey" class="wider">
 
-Multiple architectures of the Nested Music Transformer
+## Encoding Comparison {#Encoding}
+---
+<img src="img/demo_encoding_fig.PNG" style="border: 2px solid grey">
+
+An example illustrating proposed representations, note-based encoding (c) NB-Type1st and (d) NB-Pitch1st, alongside REMI and Compound word for the sake of comparison.
 {:.center .larger}
-<br>
 
-> __Note__: All the samples are generated in single pass through the model using a sequence length of 1024. Thus, the generated music is usually shorter for a more complex ensemble than a simple ensemble.
+> __Note__: All the encodings represent the same piece of music by utilizing 8 features. Specifically, REMI and Compound word weren’t designed for multi-instrument pieces. That’s why we renamed the encoding with “+I” to (a) and (b). However, the main ideas for these two encoding is reserved for (a) and (b). The piece has K number of notes in the representation. If we used F number of different features for the encoding, the scale factors between REMI;r, Compound word;c can be expressed as an inequality like followings: 1 < c <= 2  < r < F. c can reach up to 2 in the case where every notes are positioned differently (no simultaneous note played at the same time).
 
 <hr style="border: double 1.35px silver;">
+
+## Results {#Tables}
+---
+<img src="tables/dataset_analysis.PNG" style="border: 2px solid grey">
+The statistics of the dataset used in the experiments.
+{:.center .larger}
+<br>
+
+---
+<img src="tables/param_dataset.PNG" style="border: 2px solid grey">
+The hyperparameters used in the experiments for each dataset.
+{:.center .larger}
+
+---
+<img src="tables/main_table.PNG" style="border: 2px solid grey">
+The main results of the experiments for symbolic music generation. Comparison average NLL loss for each model.
+{:.center .larger}
+
+> __Note__: We used total 12 number of layers by summing layers in the main decoder, sub-decoder and feature-enricher if included. All models are trained with 512 dimension of hidden size and 8 heads of multi-head attention.
 
 ## Generated Results {#generations}
 ---
@@ -36,8 +62,14 @@ Multiple architectures of the Nested Music Transformer
 
 <div class="table-wrapper" markdown="block">
 
-| {% include audio_player.html filename="audio/unconditional/1.mp3" style="width:240px;" %} | {% include audio_player.html filename="audio/unconditional/2.mp3" style="width:240px;" %} | {% include audio_player.html filename="audio/unconditional/3.mp3" style="width:240px;" %} | {% include audio_player.html filename="audio/unconditional/4.mp3" style="width:240px;" %} |
-| {% include audio_player.html filename="audio/unconditional/5.mp3" style="width:240px;" %} | {% include audio_player.html filename="audio/unconditional/6.mp3" style="width:240px;" %} | {% include audio_player.html filename="audio/unconditional/7.mp3" style="width:240px;" %} | {% include audio_player.html filename="audio/unconditional/8.mp3" style="width:240px;" %} |
+|  | __Pop1k7__{:.center} | __Pop909__{:.center} | __SOD__{:.center} | __Lakh__{:.center}
+
+| __REMI + flattening__ | {% include audio_player.html filename="audio/symbolic_uncond/pop1k7/remi/0_pop1k7_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/pop909/remi/2_pop909_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/sod/remi/5_sod_remi.mp3" %} | {% include audio_player.html filename="/audio/symbolic_uncond/lakh/remi/3_lakh_remi.mp3" %} | 
+|  | {% include audio_player.html filename="audio/symbolic_uncond/pop1k7/remi/9_pop1k7_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/pop909/remi/6_pop909_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/sod/remi/10_sod_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/lakh/remi/10_lakh_remi.mp3" %} | 
+|  | {% include audio_player.html filename="audio/symbolic_uncond/pop1k7/remi/23_pop1k7_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/pop909/remi/26_pop909_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/sod/remi/14_sod_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/lakh/remi/20_lakh_remi.mp3" %} | 
+| __NB-PF + enricher__ | {% include audio_player.html filename="audio/symbolic_uncond/pop1k7/remi/0_pop1k7_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/pop909/remi/2_pop909_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/sod/remi/5_sod_remi.mp3" %} | {% include audio_player.html filename="/audio/symbolic_uncond/lakh/nb/1_lakh_remi.mp3" %} | 
+|  | {% include audio_player.html filename="audio/symbolic_uncond/pop1k7/remi/9_pop1k7_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/pop909/remi/6_pop909_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/sod/remi/10_sod_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/lakh/remi/10_lakh_remi.mp3" %} | 
+|  | {% include audio_player.html filename="audio/symbolic_uncond/pop1k7/remi/23_pop1k7_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/pop909/remi/26_pop909_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/sod/remi/14_sod_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/lakh/remi/20_lakh_remi.mp3" %} |
 
 </div>
 ---
