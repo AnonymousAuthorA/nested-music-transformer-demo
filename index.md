@@ -3,6 +3,8 @@
 ## Content
 ---
 - [NMT Architecture](#architecture)
+- [Encoding Comparison](#Encoding)
+- [Results](#Tables)
 - [Generated Results](#generations)
   - [Best unconditioned generation samples](#best-unconditional)
   - [4-measure continuation comparison among models](#continuation)
@@ -52,13 +54,13 @@ The hyperparameters used in the experiments for each dataset.
 The main results of the experiments for symbolic music generation. Comparison average NLL loss for each model.
 {:.center .larger}
 
-> __Note__: We used total 12 number of layers by summing layers in the main decoder, sub-decoder and feature-enricher if included. All models are trained with 512 dimension of hidden size and 8 heads of multi-head attention.
+> __Note__: We used total 12 number of layers including number of main deocer layers, sub-decoder layers and feature-enricher layers in case it is utilized. All models are trained with 512 dimension of hidden size and 8 heads of multi-head attention.
 
 ## Generated Results {#generations}
 ---
 ### Best unconditioned generation samples {#best-unconditional}
 
-> __Settings__: The results of unconditional generation from different models.
+> __Settings__: The results of unconditional generation from 4 different datasets are shown. The model is given a random seed with only Start-of-Suence (SOS) token and generates the note sequences.
 
 <div class="table-wrapper" markdown="block">
 
@@ -67,7 +69,7 @@ The main results of the experiments for symbolic music generation. Comparison av
 | __REMI + flattening__ | {% include audio_player.html filename="audio/symbolic_uncond/pop1k7/remi/0_pop1k7_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/pop909/remi/2_pop909_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/sod/remi/5_sod_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/lakh/remi/3_lakh_remi.mp3" %} | 
 |  | {% include audio_player.html filename="audio/symbolic_uncond/pop1k7/remi/9_pop1k7_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/pop909/remi/6_pop909_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/sod/remi/10_sod_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/lakh/remi/10_lakh_remi.mp3" %} | 
 |  | {% include audio_player.html filename="audio/symbolic_uncond/pop1k7/remi/23_pop1k7_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/pop909/remi/26_pop909_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/sod/remi/14_sod_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/lakh/remi/20_lakh_remi.mp3" %} | 
-| __NB-PF + enricher__ | {% include audio_player.html filename="audio/symbolic_uncond/pop1k7/remi/0_pop1k7_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/pop909/remi/2_pop909_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/sod/remi/5_sod_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/lakh/nb/1_lakh_remi.mp3" %} | 
+| __NB-PF + enricher__ | {% include audio_player.html filename="audio/symbolic_uncond/pop1k7/remi/0_pop1k7_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/pop909/remi/2_pop909_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/sod/remi/5_sod_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/lakh/nb/1_lakh_nb.mp3" %} | 
 |  | {% include audio_player.html filename="audio/symbolic_uncond/pop1k7/remi/9_pop1k7_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/pop909/remi/6_pop909_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/sod/remi/10_sod_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/lakh/remi/10_lakh_remi.mp3" %} | 
 |  | {% include audio_player.html filename="audio/symbolic_uncond/pop1k7/remi/23_pop1k7_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/pop909/remi/26_pop909_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/sod/remi/14_sod_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_uncond/lakh/remi/20_lakh_remi.mp3" %} |
 
@@ -75,7 +77,7 @@ The main results of the experiments for symbolic music generation. Comparison av
 ---
 ### 4-measure continuation comparison among models {#continuation}
 
-> __Settings__: The model is given a 4-measure length of piece as prompt. The model then generates the note sequence.
+> __Settings__: The model is given a 4-measure length symbolic tokens of selected pieces. The model then generates the note sequences. Selection of pieces for prompt is required as interesting motifs are needed for the continuation.
 
 <div class="table-wrapper" markdown="block">
 
