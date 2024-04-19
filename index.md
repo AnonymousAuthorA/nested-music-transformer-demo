@@ -62,7 +62,7 @@ The main results of the experiments for symbolic music generation. Comparison av
 
 > __Settings__: The results of unconditional generation from 4 different datasets. The model is given a random seed with only Start-of-Suence (SOS) token and generates the note sequences. The outputs are converted converted into MIDI file and then turned into audio file by Logic pro X (Digital Audio Workstation). We trimmed the audio file to have maximum 2 minutes of length.
 
-<div class="table-wrapper" markdown="block">
+<div style="overflow-x: auto;" markdown="block">
 
 |  | __Pop1k7__{:.center} | __Pop909__{:.center} | __SOD__{:.center} | __Lakh__{:.center} |
 | --- | --- | --- | --- | --- |
@@ -79,7 +79,7 @@ The main results of the experiments for symbolic music generation. Comparison av
 
 > __Settings__: The model is provided with symbolic tokens of selected pieces, each comprising four measures in length. From these tokens, the model generates note sequences. The selection of pieces for the prompt is crucial, as captivating motifs would be provided for the continuation. Although the audio files were trimmed to a length of two minutes for demo page, during the listening test, the samples were limited to 50 seconds each. This adjustment was made to ensure that the total duration of the test remained at 20 minutes, thus helping participants maintain concentration.
 
-<div class="table-wrapper" markdown="block">
+<div style="overflow-x: auto;" markdown="block">
 
 |  | __Prompt 1__{:.center} | __Prompt 2__{:.center} | __Prompt 3__{:.center} |
 | __REMI + flattening__ | {% include audio_player.html filename="audio/symbolic_continuation/101_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_continuation/165_remi.mp3" %} | {% include audio_player.html filename="audio/symbolic_continuation/181_remi.mp3" %} |
@@ -93,7 +93,7 @@ The main results of the experiments for symbolic music generation. Comparison av
 
 > __Settings__: The model receives 10-second audio samples, encoded as EnCodec tokens. Six models are employed to generate tokens from these inputs. We then decoded the generated audio tokens into audio files using a decoder pretrained with the MAESTRO dataset.
 
-<div class="table-wrapper" markdown="block">
+<div style="overflow-x: auto;" markdown="block">
 
 |  | __Prompt 1__{:.center} | __Prompt 2__{:.center} | __Prompt 3__{:.center} |
 | __Parallel__ | {% include audio_player.html filename="audio/encodec_continuation/1_00_Parallel.wav" %} | {% include audio_player.html filename="audio/encodec_continuation/3_00_Parallel.wav" %} | {% include audio_player.html filename="audio/encodec_continuation/4_00_Parallel.wav" %} |
