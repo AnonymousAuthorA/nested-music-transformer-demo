@@ -1,17 +1,3 @@
-
-<hr style="border: double 1.35px silver;">
-## Content
----
-- [NMT Architecture](#architecture)
-- [Encoding Comparison](#Encoding)
-- [Results](#Tables)
-- [Generated Results](#generations)
-  - [Best unconditioned generation samples](#best-unconditional)
-  - [4-measure continuation comparison among models](#continuation)
-  - [MAESTRO fine-tuned EnCodec token based continuated generation samples](#encodec)
-
-<hr style="border: double 1.35px silver;">
-
 <style>
 .audio-table {
     display: block;
@@ -25,7 +11,7 @@
 }
 
 .audio-table td, .audio-table th {
-    min-width: 150px; /* Adjust based on the size of your audio players */
+    min-width: 300px; /* Adjust based on the size of your audio players */
     border: 1px solid #ccc;
     text-align: center;
     padding: 8px;
@@ -36,6 +22,19 @@
     min-width: 100px; /* Adjust based on your needs */
 }
 </style>
+
+<hr style="border: double 1.35px silver;">
+## Content
+---
+- [NMT Architecture](#architecture)
+- [Encoding Comparison](#Encoding)
+- [Results](#Tables)
+- [Generated Results](#generations)
+  - [Best unconditioned generation samples](#best-unconditional)
+  - [4-measure continuation comparison among models](#continuation)
+  - [MAESTRO fine-tuned EnCodec token based continuated generation samples](#encodec)
+
+<hr style="border: double 1.35px silver;">
 
 ## NMT Architecture {#architecture}
 ---
