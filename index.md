@@ -11,7 +11,7 @@
 }
 
 .audio-table td, .audio-table th {
-    min-width: 150px; /* Adjust based on the size of your audio players */
+    min-width: 200px; /* Adjust based on the size of your audio players */
     border: 1px solid #ccc;
     text-align: center;
     padding: 8px;
@@ -19,7 +19,7 @@
 
 .audio-table audio {
     width: 100%; /* Make audio player responsive within the cell */
-    min-width: 200px; /* Adjust based on your needs */
+    min-width: 250px; /* Adjust based on your needs */
 }
 </style>
 
