@@ -1,13 +1,13 @@
 <style>
 .audio-table {
-    display: block;
+
     overflow-x: auto;
     white-space: nowrap;
 }
 
 .audio-table table {
     width: auto;
-    min-width: 300px; /* Adjust based on your needs */
+    min-width: 150px; /* Adjust based on your needs */
 }
 
 .audio-table td, .audio-table th {
