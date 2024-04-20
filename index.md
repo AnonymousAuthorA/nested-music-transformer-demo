@@ -7,11 +7,11 @@
 
 .audio-table table {
     width: auto;
-    min-width: 600px; /* Adjust based on your needs */
+    min-width: 400px; /* Adjust based on your needs */
 }
 
 .audio-table td, .audio-table th {
-    min-width: 300px; /* Adjust based on the size of your audio players */
+    min-width: 200px; /* Adjust based on the size of your audio players */
     border: 1px solid #ccc;
     text-align: center;
     padding: 8px;
